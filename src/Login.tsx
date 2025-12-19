@@ -27,9 +27,7 @@ import {
 } from "@mui/lab";
 
 import {
-  GitHub,
   LinkedIn,
-  Twitter,
   Email,
   Phone,
   LocationOn,
@@ -256,9 +254,7 @@ const Portfolio = () => {
 
           <div className="flex gap-4 justify-center mb-8">
             {[
-              { icon: <GitHub />, tooltip: "GitHub", delay: 2200, link: "https://github.com/yourgithub" },
-              { icon: <LinkedIn />, tooltip: "LinkedIn", delay: 2400, link: "https://www.linkedin.com/in/vedant-mundel" },
-              { icon: <Twitter />, tooltip: "Twitter", delay: 2600, link: "https://twitter.com/yourhandle" },
+              { icon: <LinkedIn />, tooltip: "LinkedIn", delay: 2400, link: "https://www.linkedin.com/in/vedant-mundel" }
             ].map((item, index) => (
               <Zoom in key={index} timeout={item.delay}>
                 <Tooltip title={item.tooltip}>
