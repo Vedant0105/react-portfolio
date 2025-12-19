@@ -8,7 +8,6 @@ import {
   Card,
   CardContent,
   Chip,
-  TextField,
   IconButton,
   Fab,
   Avatar,
@@ -16,9 +15,7 @@ import {
   Tooltip,
   Zoom,
   Fade,
-  Slide,
   Stack,
-  Autocomplete
 } from '@mui/material';
 import {
   Timeline,
@@ -43,7 +40,6 @@ import {
   CloudUpload,
   ArrowUpward,
   Work,
-  School
 } from '@mui/icons-material';
 
 // Typing animation hook
