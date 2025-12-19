@@ -101,7 +101,7 @@ const FlipCard = ({ front, back }: { front: React.ReactNode; back: React.ReactNo
 };
 
 const Portfolio = () => {
-  const [scrollY, setScrollY] = useState(0);
+
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [projectFilter, setProjectFilter] = useState('All');
 
@@ -109,7 +109,6 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
       setShowScrollTop(window.scrollY > 400);
     };
     window.addEventListener('scroll', handleScroll);
@@ -198,28 +197,6 @@ const Portfolio = () => {
     },
   ];
 
-  const services = [
-    {
-      icon: <Code className="text-5xl" />,
-      title: 'Full Stack Development',
-      description: 'Building scalable web applications with React.js, FastAPI, and MongoDB, focusing on performance optimization and clean code architecture.'
-    },
-    {
-      icon: <Palette className="text-5xl" />,
-      title: 'AI/ML Solutions',
-      description: 'Developing AI-powered solutions using OpenAI GPT-3, RAG pipelines, and vector embeddings to enhance information retrieval and automation.'
-    },
-    {
-      icon: <Speed className="text-5xl" />,
-      title: 'Performance Optimization',
-      description: 'Optimizing application performance by reducing API calls, implementing caching, and improving load times.'
-    },
-    {
-      icon: <Security className="text-5xl" />,
-      title: 'Security Implementation',
-      description: 'Implementing robust security measures like JWT authentication and role-based access control to protect applications and user data.'
-    }
-  ];
 
   const categories = ['All', 'Web', 'AI/ML', 'Data'];
   const filteredProjects = projectFilter === 'All'
