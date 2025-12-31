@@ -339,6 +339,9 @@ const Portfolio = () => {
                   </div>
 
                   <Button
+                    component="a"
+                    href="/VEDANT_RESUME.pdf"
+                    download
                     variant="outlined"
                     sx={{
                       borderColor: 'rgba(0, 180, 216, 0.5)',
@@ -346,13 +349,14 @@ const Portfolio = () => {
                       mt: 3,
                       '&:hover': {
                         borderColor: '#00b4d8',
-                        bgcolor: 'rgba(0, 180, 216, 0.1)'
-                      }
+                        bgcolor: 'rgba(0, 180, 216, 0.1)',
+                      },
                     }}
                     startIcon={<CloudUpload />}
                   >
                     Download Resume
                   </Button>
+
                 </div>
               </div>
             </Container>
@@ -492,7 +496,7 @@ const Portfolio = () => {
       <section id="projects" className="py-10 px-2" style={{ backgroundColor: '#0f172a' }}>
         <Container>
           <Typography variant="h3" className="text-center mb-8 font-bold">
-             <span style={{
+            <span style={{
               background: 'linear-gradient(135deg, #00b4d8 0%, #90e0ef 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
