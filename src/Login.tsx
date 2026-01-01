@@ -121,15 +121,22 @@ const Portfolio = () => {
       category: 'AI/ML'
     },
     {
+      name: 'Resume Intelligence System (RAG)',
+      description: 'Built a Retrieval-Augmented Generation (RAG) system that ingests PDF resumes, performs semantic chunking and embedding, and enables natural-language querying via FastAPI and vector search.',
+      technologies: [
+        'Python',
+        'FastAPI',
+        'Sentence Transformers',
+        'FAISS',
+        'PyPDF2',
+        'LLMs (RAG)'
+      ],
+      category: 'AI/ML'
+    },
+    {
       name: 'E-Commerce Platform',
       description: 'Built a full-stack e-commerce application with product management, authentication, and order processing. Implemented image-based product recommendations using Google Vision API and cosine similarity.',
       technologies: ['Flask', 'React.js', 'Google Vision API'],
-      category: 'Web'
-    },
-    {
-      name: 'Warehouse Management POC',
-      description: 'Designed a warehouse management proof-of-concept supporting CSV/text/image uploads, improving inventory operations by 50%.',
-      technologies: ['Python', 'FastAPI', 'Google Vision API'],
       category: 'Web'
     },
     {
