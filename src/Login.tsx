@@ -16,6 +16,11 @@ import {
   Zoom,
   Fade,
   Stack,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
 } from '@mui/material';
 import {
   Timeline,
@@ -34,9 +39,10 @@ import {
   CloudUpload,
   ArrowUpward,
   Work,
+  Menu as MenuIcon,
 } from '@mui/icons-material';
 
-const useTypingEffect = (text: any, speed = 100) => {
+const useTypingEffect = (text, speed = 100) => {
   const [displayText, setDisplayText] = useState('');
 
   useEffect(() => {
@@ -58,6 +64,7 @@ const useTypingEffect = (text: any, speed = 100) => {
 const Portfolio = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [projectFilter, setProjectFilter] = useState('All');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const typedText = useTypingEffect('Full Stack Developer & AI Enthusiast', 100);
 
@@ -72,6 +79,26 @@ const Portfolio = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const handleNavClick = (sectionId) => {
+    setMobileMenuOpen(false);
+    const element = document.querySelector(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const navItems = [
+    { label: 'About', href: '#about' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Contact', href: '#contact' },
+  ];
 
   const skills = {
     frontend: [
@@ -187,13 +214,55 @@ const Portfolio = () => {
           }}>
             Vedant Mundel
           </Typography>
-          <Button sx={{ color: 'white' }} href="#about">About</Button>
-          <Button sx={{ color: 'white' }} href="#skills">Skills</Button>
-          <Button sx={{ color: 'white' }} href="#projects">Projects</Button>
-          <Button sx={{ color: 'white' }} href="#experience">Experience</Button>
-          <Button sx={{ color: 'white' }} href="#contact">Contact</Button>
+          
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
+            {navItems.map((item) => (
+              <Button key={item.label} sx={{ color: 'white' }} href={item.href}>
+                {item.label}
+              </Button>
+            ))}
+          </Box>
+
+          <IconButton
+            sx={{ display: { xs: 'flex', md: 'none' }, color: 'white' }}
+            onClick={toggleMobileMenu}
+          >
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
+
+      <Drawer
+        anchor="right"
+        open={mobileMenuOpen}
+        onClose={toggleMobileMenu}
+        sx={{
+          display: { xs: 'block', md: 'none' },
+          '& .MuiDrawer-paper': {
+            backgroundColor: '#1e293b',
+            width: 250,
+          }
+        }}
+      >
+        <List sx={{ pt: 8 }}>
+          {navItems.map((item) => (
+            <ListItem key={item.label} disablePadding>
+              <ListItemButton onClick={() => handleNavClick(item.href)}>
+                <ListItemText 
+                  primary={item.label} 
+                  sx={{ 
+                    color: 'white',
+                    '& .MuiTypography-root': {
+                      fontWeight: 500,
+                      fontSize: '1.1rem'
+                    }
+                  }} 
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
 
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16" style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' }}>
         <Container className="z-10">
