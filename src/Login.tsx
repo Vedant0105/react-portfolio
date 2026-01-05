@@ -42,7 +42,7 @@ import {
   Menu as MenuIcon,
 } from '@mui/icons-material';
 
-const useTypingEffect = (text, speed = 100) => {
+const useTypingEffect = (text:any, speed = 100) => {
   const [displayText, setDisplayText] = useState('');
 
   useEffect(() => {
@@ -84,7 +84,7 @@ const Portfolio = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const handleNavClick = (sectionId) => {
+  const handleNavClick = (sectionId:any) => {
     setMobileMenuOpen(false);
     const element = document.querySelector(sectionId);
     if (element) {
